@@ -1,0 +1,91 @@
+.feed-page {
+  padding-top: calc(var(--navbar-h) + var(--space-md));
+  padding-bottom: calc(64px + var(--space-lg));
+  min-height: 100vh;
+}
+
+.feed-inner {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+/* Stories card */
+.stories-card { padding: var(--space-md) var(--space-sm); }
+
+/* Compose */
+.compose-card { padding: var(--space-md); }
+.compose-head {
+  display: flex;
+  gap: var(--space-sm);
+  align-items: flex-start;
+}
+.compose-input {
+  flex: 1;
+  border: 2px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 10px 14px;
+  font-size: max(16px, 1rem);
+  resize: none;
+  background: var(--bg-input);
+  transition: border-color 0.2s;
+  width: 100%;
+  min-height: 60px;
+}
+.compose-input:focus { border-color: var(--primary); background: white; }
+.compose-preview {
+  margin-top: var(--space-sm);
+  position: relative;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+.compose-preview img { width: 100%; max-height: 200px; object-fit: cover; }
+.remove-preview {
+  position: absolute; top: 8px; right: 8px;
+  background: rgba(0,0,0,0.5);
+  color: white;
+  border-radius: 50%;
+  width: 28px; height: 28px;
+  font-size: 0.8rem;
+  display: flex; align-items: center; justify-content: center;
+}
+.compose-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: var(--space-sm);
+  gap: var(--space-sm);
+}
+.compose-actions { display: flex; align-items: center; gap: var(--space-sm); }
+.compose-action {
+  padding: 8px 12px;
+  border-radius: var(--radius-md);
+  background: var(--bg);
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  font-weight: 700;
+  min-height: 36px;
+  transition: all 0.2s;
+}
+.compose-action:hover { background: var(--primary-light); color: var(--primary); }
+.char-count { font-size: 0.75rem; color: var(--text-muted); }
+
+/* Posts list */
+.posts-list { display: flex; flex-direction: column; gap: var(--space-md); }
+
+/* Loading */
+.feed-loading {
+  display: flex; flex-direction: column;
+  align-items: center; gap: var(--space-md);
+  padding: var(--space-2xl);
+  color: var(--text-secondary);
+}
+
+@media (max-width: 480px) {
+  .feed-page { padding-top: calc(var(--navbar-h) + var(--space-sm)); }
+  .compose-footer { flex-wrap: wrap; }
+  .compose-footer .btn { width: 100%; }
+}

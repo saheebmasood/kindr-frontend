@@ -1,0 +1,151 @@
+/* ── Navbar ── */
+.navbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: var(--navbar-h);
+  background: white;
+  border-bottom: 2px solid var(--border-light);
+  box-shadow: 0 2px 12px var(--shadow);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  padding: 0 var(--space-md);
+}
+
+.navbar-inner {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
+}
+
+.navbar-logo {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  color: var(--primary);
+  letter-spacing: 0.5px;
+  flex-shrink: 0;
+}
+
+/* Desktop nav links */
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  flex: 1;
+  justify-content: center;
+}
+
+.nav-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 6px 12px;
+  border-radius: var(--radius-md);
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  font-weight: 700;
+  transition: all 0.2s;
+  min-width: 52px;
+  text-align: center;
+}
+.nav-link .nav-icon { font-size: 1.2rem; }
+.nav-link:hover, .nav-link.active {
+  background: var(--primary-light);
+  color: var(--primary);
+}
+
+/* Right side */
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  flex-shrink: 0;
+}
+
+.navbar-avatar {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.2rem;
+  border: 2.5px solid var(--primary-light);
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+.navbar-avatar:hover { border-color: var(--primary); }
+
+.logout-btn {
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  background: var(--primary-light);
+  color: var(--primary);
+  font-size: 0.8rem;
+  font-weight: 700;
+  transition: all 0.2s;
+  min-height: 32px;
+}
+.logout-btn:hover { background: var(--primary); color: white; }
+
+/* ── Bottom mobile nav ── */
+.mobile-nav {
+  display: none;
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  height: 64px;
+  background: white;
+  border-top: 2px solid var(--border-light);
+  box-shadow: 0 -4px 16px var(--shadow);
+  z-index: 1000;
+  padding: 0 var(--space-sm);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.mobile-nav-inner {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.mobile-nav-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 6px 12px;
+  border-radius: var(--radius-md);
+  color: var(--text-muted);
+  font-size: 0.65rem;
+  font-weight: 700;
+  transition: all 0.2s;
+  min-width: 52px;
+  position: relative;
+}
+.mobile-nav-btn .nav-icon { font-size: 1.3rem; }
+.mobile-nav-btn.active { color: var(--primary); }
+.mobile-nav-btn.active .nav-icon { transform: scale(1.1); }
+
+.nav-badge {
+  position: absolute;
+  top: 2px; right: 8px;
+  min-width: 16px; height: 16px;
+  background: var(--primary);
+  color: white;
+  border-radius: 99px;
+  font-size: 0.6rem;
+  font-weight: 800;
+  display: flex; align-items: center; justify-content: center;
+  padding: 0 4px;
+}
+
+@media (max-width: 640px) {
+  .navbar-links { display: none; }
+  .mobile-nav   { display: flex; flex-direction: column; justify-content: center; }
+  /* Add bottom padding so content isn't hidden behind mobile nav */
+  .page-wrapper { padding-bottom: 64px; }
+  .navbar-logo  { font-size: 1.4rem; }
+}

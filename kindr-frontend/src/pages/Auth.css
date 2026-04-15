@@ -1,0 +1,174 @@
+/* src/pages/Auth.css */
+.auth-page {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+/* Left panel */
+.auth-left {
+  background: linear-gradient(135deg, #FFE8D6 0%, #D6F5FF 50%, #D6FFE8 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 48px;
+  position: relative;
+  overflow: hidden;
+}
+[data-theme="dark"] .auth-left {
+  background: linear-gradient(135deg, #1A0D05 0%, #051A1A 50%, #051A0D 100%);
+}
+
+.auth-brand { text-align: center; position: relative; z-index: 2; }
+.auth-logo {
+  font-family: 'Baloo 2', cursive;
+  font-weight: 800;
+  font-size: 52px;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+.auth-brand p {
+  font-size: 17px;
+  color: var(--text2);
+  line-height: 1.7;
+  max-width: 340px;
+  margin: 0 auto;
+  font-weight: 500;
+}
+
+.auth-floaters {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-top: 36px;
+}
+.af {
+  font-size: 40px;
+  animation: floatY 4s ease-in-out infinite;
+  display: inline-block;
+}
+.af:nth-child(1){animation-delay:0s;}
+.af:nth-child(2){animation-delay:0.8s;}
+.af:nth-child(3){animation-delay:1.6s;}
+.af:nth-child(4){animation-delay:2.4s;}
+@keyframes floatY {
+  0%,100%{ transform: translateY(0) rotate(-5deg); }
+  50%    { transform: translateY(-14px) rotate(5deg); }
+}
+
+.auth-steps {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 32px;
+}
+.auth-step-dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: var(--border);
+  transition: all 0.3s;
+}
+.auth-step-dot.active { background: var(--coral); transform: scale(1.3); }
+
+/* Right panel */
+.auth-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 48px;
+  background: var(--bg);
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 460px;
+}
+
+.auth-header { margin-bottom: 28px; }
+.auth-header h1 {
+  font-family: 'Baloo 2', cursive;
+  font-weight: 800;
+  font-size: 30px;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+.auth-header p { font-size: 15px; color: var(--text2); font-weight: 500; }
+
+.auth-form { display: flex; flex-direction: column; gap: 16px; }
+
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+.auth-form-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 4px;
+}
+
+.auth-footer {
+  text-align: center;
+  margin-top: 24px;
+  font-size: 14px;
+  color: var(--text2);
+  font-weight: 500;
+}
+.auth-footer a { color: var(--coral); font-weight: 700; }
+.auth-footer a:hover { text-decoration: underline; }
+
+/* Role cards */
+.role-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 24px; }
+.role-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 24px 16px;
+  border-radius: 18px;
+  border: 2px solid var(--border);
+  background: var(--card);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.role-card:hover { border-color: var(--coral); transform: translateY(-3px); box-shadow: var(--shadow); }
+.role-card.selected { border-color: var(--coral); background: rgba(255,107,107,0.06); }
+.role-icon  { font-size: 40px; }
+.role-title { font-family: 'Baloo 2', cursive; font-weight: 800; font-size: 17px; color: var(--text); }
+.role-desc  { font-size: 12px; color: var(--text3); text-align: center; line-height: 1.5; }
+
+/* Avatar grid */
+.avatar-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+.avatar-choice {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 14px 8px;
+  border-radius: 16px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.avatar-choice:hover { transform: scale(1.08); box-shadow: var(--shadow); }
+.avatar-choice.selected {
+  border-color: var(--coral);
+  box-shadow: 0 0 0 3px rgba(255,107,107,0.2);
+}
+.avatar-choice-emoji { font-size: 36px; }
+.avatar-choice-label { font-size: 11px; font-weight: 700; color: var(--text2); }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .auth-page { grid-template-columns: 1fr; }
+  .auth-left  { display: none; }
+  .auth-right { padding: 80px 24px 40px; align-items: flex-start; }
+  .form-row   { grid-template-columns: 1fr; }
+}
